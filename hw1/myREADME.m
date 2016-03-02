@@ -12,11 +12,7 @@
 % Parameters: windows size = 3
 % Other parameters here
 % ###############################################################################
-disp('Running "linear_amp"...');
-% display some useful information figure(1)
-% create a new figure window
+disp('Running "linear_amp"...'); % display some useful information
+figure(1) % create a new figure window
 linear_amp; % invoke your M-file properly!
 disp('Done, "linear_amp", output image is "linear_amp_lena.256"');
-% ###############################################################################
-% Problem 2: Edge Detection
-% ###############################################################################
