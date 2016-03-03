@@ -5,7 +5,7 @@ function count = writeraw(G, filename)
     % filename: file name of the file to write to disk
     % count: return value, the elements written to file
  
-    disp([' Write image data to' filename ' ...']);
+    disp(['Writing image data to' filename ' ...']);
       fid = fopen(filename, 'wb');
     if (fid == - 1)
         error('can not open output image filem press CTRL-C to exit \n');

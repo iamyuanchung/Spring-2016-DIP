@@ -2,7 +2,7 @@ function G = readraw(filename)
     % readraw - read RAW format gray scale image file from Disk
     % Usuage  : G = readraw(filename)
  
-    disp(['    Retrieving Image ' filename ' ...']);
+    disp(['Retrieving Image ' filename ' ...']);
       fid = fopen(filename, 'rb');
     if (fid == - 1)
         error('can not open imput image filem press CTRL-C to exit \n');
