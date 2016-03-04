@@ -1,5 +1,7 @@
 function H = plotHistogram(G)
-    % TODO
+    % Input:  G - the input 2D matrix
+    % Output: H - an array of length 256 where H(i) is the number of pixels
+    %             whose pixel value equals to (i - 1)
     [m, n] = size(G);
     H = zeros(1, 256);
     for i = 1:m

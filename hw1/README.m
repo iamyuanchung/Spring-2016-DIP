@@ -1,97 +1,109 @@
 % ####################################################################### %
+% ###################### DIP Homework Assignment #1 ##################### %
 % ####################################################################### %
-% DIP Homework Assignment #1                                              %
-% March 15, 2016                                                          %
+% Deadline: March 15, 2016                                                %
 % Name: ¡È∑∂¶w                                                             %
 % ID #: B01902040                                                         %
-% email: iamyuanchung@gmail.com                                           %
+% Email: iamyuanchung@gmail.com                                           %
+% ####################################################################### %
+% ####################################################################### %
+% Files: 1. README.m          2. flipVertical.m      3. flipHorizontal.m  %
+%        4. plotHistogram.m   5. histEqual.m         6. localHistEqual.m  %  
+%        7. logTransform.m    8. powerLawTransform.m                      %
+%        9. invLogTransform.m                                             %
+% ####################################################################### %
+% ####################################################################### %
+% Remark: Please place the four input images (sample1~4.raw) and the      %
+%         source code under the same directory.                           %
+%         During the execution of this script, all of the required        %
+%         outputs, including images and histograms, are saved as PNG      %
+%         files under the same directory, and are also included in        %
+%         the report.                                                     %
+%         For function 2 ~ 9, each of them is given a 2D matrix that      %
+%         represents the digital image pixel, and returns a modified      %
+%         (according to the requirement) 2D matrix.                       %
+%         More details are stated in each function file.                  %
 % ####################################################################### %
 % ####################################################################### %
 
-% Load the raw images for later usage
-I = readraw('./src_images/sample1.raw');
-D = readraw('./src_images/sample2.raw');
-% G3 = readraw('./src_images/sample3.raw');
-% G4 = readraw('./src_images/sample4.raw');
+% Load the raw images for later usage ...
+I = readraw('./sample1.raw');
+D = readraw('./sample2.raw');
 
+% Do not display figures during execution ...
+fig = figure;
+set(fig, 'Visible', 'off');
 
 % ####################################################################### %
 % ##################### Warm-Up: Simple Manipulation #################### %
 % ####################################################################### %
 % ####################################################################### %
-% Implementation 1: Flip image I (sample1.raw) vertically.                %
+% Implementation 1: Flip image I vertically.                              %
 % M-file name: flipVertical.m                                             %
 % Usage: flipVertical(I)                                                  %
 % Output: The vertically flipped 2D matrix                                %
 % ####################################################################### %
 
 fprintf('\nFlipping image I vertically ...\n');
-writeraw(flipVertical(I), './rsl_images/sample1.vertical.raw');
-% Uncomment the following line to see the resulting image
-% figure; imshow(readraw('./rsl_images/sample1.vertical.raw'), [0, 255]);
+imwrite(uint8(flipVertical(I)), 'sample1.vertical.png');
 
 % ####################################################################### %
-% Implementation 2: Flip image I (sample1.raw) horizontally.              %
+% Implementation 2: Flip image I horizontally.                            %
 % M-file name: flipHorizontal.m                                           %
-% Usage: flipHorizontal(I)                                               %
+% Usage: flipHorizontal(I)                                                %
 % Output: The horizontally flipped 2D matrix                              %
 % ####################################################################### %
 
 fprintf('\nFlipping image I horizontally ...\n');
-writeraw(flipHorizontal(I), './rsl_images/sample1.horizontal.raw');
-% figure; imshow(readraw('./rsl_images/sample1.horizontal.raw'), [0, 255]);
+imwrite(uint8(flipHorizontal(I)), 'sample1.horizontal.png');
 
 
 % ####################################################################### %
 % ##################### Problem 1: Image Enhancement #################### %
 % ####################################################################### %
 % ####################################################################### %
-% Implementation 1: Plot the histogram of I (sample1.raw).                %
+% Implementation 1: Plot the histogram of I.                              %
 % M-file name: plotHistogram.m                                            %
 % Usage: plotHistogram(I)                                                 %
 % Output: The 1D array that stores the distribution of pixel values       %
 % ####################################################################### %
 
 fprintf('\nPlotting the histogram of image I ...\n');
-figure; bar(0:255, plotHistogram(I));
-saveas(gcf, './rsl_images/sample1.histogram.png');
+saveas(bar(0:255, plotHistogram(I)), 'sample1.hist.png');
 
 % ####################################################################### %
-% Implementation 2: Plot the histogram of D (sample2.raw).                %
+% Implementation 2: Plot the histogram of D.                              %
 % M-file name: plotHistogram.m                                            %
 % Usage: plotHistogram(D)                                                 %
 % Output: The 1D array that stores the distribution of pixel value        %
 % ####################################################################### %
 
 fprintf('\nPlotting the histogram of image D ...\n');
-figure; bar(0:255, plotHistogram(D));
-saveas(gcf, './rsl_images/sample2.histogram.png');
+saveas(bar(0:255, plotHistogram(D)), 'sample2.hist.png');
 
 % ####################################################################### %
-% Implementation 3: Perform histogram equalization on D (sample2.raw)     %
-%                   and output the result as H.                           %
+% Implementation 3: Perform histogram equalization on D and output the    %
+%                   result as H.                                          %
 % M-file name: histoEqual.m                                               %
 % Usage: histoEqual(D)                                                    %
-% Output: the equalized 2D matrix                                         %
+% Output: the histogram equalized 2D matrix                               %
 % ####################################################################### %
 
 fprintf('\nPerforming histogram equalization on D ...\n');
-H = histoEqual(D);
-writeraw(H, './rsl_images/sample2.histo.equal.raw');
-figure; imshow(readraw('./rsl_images/sample2.histo.equal.raw'), [0, 255]);
+H = histEqual(D);
+imwrite(uint8(H), 'sample2.hist.equal.png');
 
 % ####################################################################### %
-% Implementation 4: Perform local histogram equalization on D             %
-%                   (sample2.raw) and output the result as L.             %
-% M-file name: localHistoEqual.m                                          %
-% Usage: localHistoEqual(D)                                               %
+% Implementation 4: Perform local histogram equalization on D and output  %
+%                   the result as L.                                      %
+% M-file name: localHistEqual.m                                           %
+% Usage: localHistEqual(D)                                                %
 % Output: the locally equalized 2D matrix                                 %
 % ####################################################################### %
 
 fprintf('\nPerforming local histogram equalization on D ...\n');
-L = localHistoEqual(D);
-writeraw(L, './rsl_images/sample2.local.histo.equal.raw');
-figure; imshow(readraw('./rsl_images/sample2.local.histo.equal.raw'), [0, 255]);
+L = localHistEqual(D);
+imwrite(uint8(L), 'sample2.local.hist.equal.png');
 
 % ####################################################################### %
 % Implementation 5: Plot the histogram of H.                              %
@@ -101,8 +113,7 @@ figure; imshow(readraw('./rsl_images/sample2.local.histo.equal.raw'), [0, 255]);
 % ####################################################################### %
 
 fprintf('\nPlotting the histogram of H ...\n');
-figure; bar(0:255, plotHistogram(H));
-saveas(gcf, './rsl_images/sample2.histo.equal.histogram.png');
+saveas(bar(0:255, plotHistogram(H)), 'sample2.hist.equal.hist.png');
 
 % ####################################################################### %
 % Implementation 6: Plot the histogram of L.                              %
@@ -112,8 +123,7 @@ saveas(gcf, './rsl_images/sample2.histo.equal.histogram.png');
 % ####################################################################### %
 
 fprintf('\nPlotting the histogram of L ...\n');
-figure; bar(0:255, plotHistogram(L));
-saveas(gcf, './rsl_images/sample2.local.histo.equal.histogram.png');
+saveas(bar(0:255, plotHistogram(L)), 'sample2.local.hist.equal.hist.png');
 
 % ####################################################################### %
 % Implementation 7: Perform the log transform on D and output the         %
@@ -123,14 +133,11 @@ saveas(gcf, './rsl_images/sample2.local.histo.equal.histogram.png');
 % Output: The 2D matrix enhanced by log transform                         %
 % ####################################################################### %
 
-fprintf('\n Performing log transform on D ...\n');
+fprintf('\nPerforming log transform on D and plot the corresponding histogram ...\n');
 LT = logTransform(D, 0.8);
-writeraw(LT, './rsl_images/sample2.log.raw');
-figure; imshow(readraw('./rsl_images/sample2.log.raw'), [0, 255]);
+imwrite(uint8(LT), 'sample2.log.png');
 
-fprintf('\nPlotting the histogram of sample2.log.raw ...\n');
-figure; bar(0:255, plotHistogram(LT));
-saveas(gcf, './rsl_images/sample2.log.histogram.png');
+saveas(bar(0:255, plotHistogram(LT)), 'sample2.log.hist.png');
 
 % ####################################################################### %
 % Implementation 8: Perform the inverse log transform on D and output     %
@@ -140,14 +147,11 @@ saveas(gcf, './rsl_images/sample2.log.histogram.png');
 % Output:
 % ####################################################################### %
 
-fprintf('\n Performing inverse log transform on D ...\n');
-ILT = inverselogTransform();
-writeraw(ILT, './rsl_images/sample2.inv.log.raw');
-figure; imshow(readraw('./rsl_images/sample2.inv.log.raw'), [0, 255]);
-
-fprintf('\nPlotting the histogram of sample2.inv.log.raw ...\n');
-figure; bar(0:255, plotHistogram(ILT));
-saveas(gcf, './rsl_images/sample2.inv.log.histogram.png');
+% fprintf('\n Performing inverse log transform on D and plot the corresponding histogram ...\n');
+% ILT = inverselogTransform(D);
+% imwrite(uint8(ILT), 'sample.inv.log.png');
+% 
+% saveas(bar(0:255, plotHistogram(ILT)), 'sample2.inv.log.hist.png');
 
 % ####################################################################### %
 % Implementation 9: Perform the power-law transform on D and output the   %
@@ -157,14 +161,11 @@ saveas(gcf, './rsl_images/sample2.inv.log.histogram.png');
 % Output: The 2D matrix enhanced by power-law trnasform                   %
 % ####################################################################### %
 
-fprintf('\n Performing power-law transform on D ...\n');
+fprintf('\nPerforming power-law transform on D and plot the corresponding histogram ...\n');
 PLT = powerLawTransform(D, 0.5);
-writeraw(PLT, './rsl_images/sample2.power.law.raw');
-figure; imshow(readraw('./rsl_images/sample2.power.law.raw'), [0, 255]);
+imwrite(uint8(PLT), 'sample2.power.law.png');
 
-fprintf('\nPlotting the histogram of sample2.power.law.raw ...\n');
-figure; bar(0:255, plotHistogram(PLT));
-saveas(gcf, './rsl_images/sample2.power.law.histogram.png');
+saveas(bar(0:255, plotHistogram(PLT)), 'sample.power.law.hist.png');
 
 
 % ####################################################################### %
@@ -174,7 +175,7 @@ saveas(gcf, './rsl_images/sample2.power.law.histogram.png');
 % Implementation 1: Add the same noise as sample3.raw to image I          %
 %                   (sample1.raw) and denote the result as N1             %
 % M-file name: addSaltPepper.m                                            %
-% Usage: addSaltPepper(I)                                                %
+% Usage: addSaltPepper(I)                                                 %
 % Output: the 2D matrix with salt and pepper noise added                  %
 % ####################################################################### %
 
@@ -183,7 +184,7 @@ saveas(gcf, './rsl_images/sample2.power.law.histogram.png');
 % Implementation 2: Add the same noise as sample4.raw to image I          %
 %                   (sample1.raw) and denote the result as N2             %
 % M-file name: addGaussian.m                                              %
-% Usage: addGaussian(I)                                                  %
+% Usage: addGaussian(I)                                                   %
 % Output: the 2D matrix with Gaussian noise added                         %
 % ####################################################################### %
 
@@ -224,3 +225,4 @@ saveas(gcf, './rsl_images/sample2.power.law.histogram.png');
 % Usage: TODO                                                             %
 % Output: TODO                                                            %
 % ####################################################################### %
+
