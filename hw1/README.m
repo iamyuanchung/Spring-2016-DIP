@@ -129,12 +129,12 @@ saveas(bar(0:255, plotHistogram(L)), 'sample2.local.hist.equal.hist.png');
 % Implementation 7: Perform the log transform on D and output the         %
 %                   corresponding histogram.                              %
 % M-file name: logTransform.m                                             %
-% Usage: logTransform(D, c)                                               %
+% Usage: logTransform(D)                                                  %
 % Output: The 2D matrix enhanced by log transform                         %
 % ####################################################################### %
 
 fprintf('\nPerforming log transform on D and plot the corresponding histogram ...\n');
-LT = logTransform(D, 0.8);
+LT = logTransform(D);
 imwrite(uint8(LT), 'sample2.log.png');
 
 saveas(bar(0:255, plotHistogram(LT)), 'sample2.log.hist.png');
@@ -143,15 +143,15 @@ saveas(bar(0:255, plotHistogram(LT)), 'sample2.log.hist.png');
 % Implementation 8: Perform the inverse log transform on D and output     %
 %                   the corresponding histogram                           %
 % M-file name: invLogTransform.m                                          %
-% Usage: 
-% Output:
+% Usage: invLogTransform(D)                                               %
+% Output: The 2D matrix enhanced by inverse log transform                 %
 % ####################################################################### %
 
-% fprintf('\n Performing inverse log transform on D and plot the corresponding histogram ...\n');
-% ILT = inverselogTransform(D);
-% imwrite(uint8(ILT), 'sample.inv.log.png');
-% 
-% saveas(bar(0:255, plotHistogram(ILT)), 'sample2.inv.log.hist.png');
+fprintf('\nPerforming inverse log transform on D and plot the corresponding histogram ...\n');
+ILT = invLogTransform(D);
+imwrite(uint8(ILT), 'sample.inv.log.png');
+
+saveas(bar(0:255, plotHistogram(ILT)), 'sample2.inv.log.hist.png');
 
 % ####################################################################### %
 % Implementation 9: Perform the power-law transform on D and output the   %
