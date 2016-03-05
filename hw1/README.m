@@ -9,8 +9,8 @@
 % ####################################################################### %
 % Files: 1. README.m          2. flipVertical.m      3. flipHorizontal.m  %
 %        4. plotHistogram.m   5. histEqual.m         6. localHistEqual.m  %  
-%        7. logTransform.m    8. powerLawTransform.m                      %
-%        9. invLogTransform.m                                             %
+%        7. logTransform.m    8. invLogTransform.m                        %
+%        9. powerLawTransform.m                                           %
 % ####################################################################### %
 % ####################################################################### %
 % Remark: Please place the four input images (sample1~4.raw) and the      %

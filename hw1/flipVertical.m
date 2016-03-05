@@ -1,9 +1,16 @@
 function G_out = flipVertical(G)
-    % Input:  G - the input 2D matrix
-    % Output: G_out - the vertically flipped 2D matrix
-    [m, n] = size(G);
-    G_out = zeros(m, n);
-    for i = 1:m
-        G_out(i, :) = G(m - i + 1, :);
-    end
+% ####################################################################### %
+% logTransform: Flip the given 2D image matrix vertically                 %
+%                                                                         %
+%   Usage:                                                                %
+%       G_out = flipVertical(G)                                           %
+%                                                                         %
+%   Description:                                                          %
+%       I think the code is self-explained enough ...                     %
+% ####################################################################### %
+
+[m, n] = size(G);
+G_out = zeros(m, n);
+for i = 1:m
+    G_out(i, :) = G(m - i + 1, :);
 end
