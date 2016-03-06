@@ -1,6 +1,6 @@
 function G_out = flipVertical(G)
 % ####################################################################### %
-% logTransform: Flip the given 2D image matrix vertically                 %
+% flipVertical: Flip the given 2D image matrix vertically                 %
 %                                                                         %
 %   Usage:                                                                %
 %       G_out = flipVertical(G)                                           %

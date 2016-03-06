@@ -1,6 +1,6 @@
 function G_out = flipHorizontal(G)
 % ####################################################################### %
-% logTransform: Flip the given 2D image matrix horizontally               %
+% flipHorizontal: Flip the given 2D image matrix horizontally             %
 %                                                                         %
 %   Usage:                                                                %
 %       G_out = flipHorizontal(G)                                         %

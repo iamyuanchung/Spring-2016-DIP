@@ -1,6 +1,6 @@
 function PLT = powerLawTransform(G, p)
 % ####################################################################### %
-% invLogTransform: Perform power-law transform on the given 2D image      %
+% powerLawTransform: Perform power-law transform on the given 2D image    %
 %                  matrix                                                 %
 %                                                                         %
 %   Usage:                                                                %

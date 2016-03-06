@@ -24,7 +24,7 @@ end
     
 HE = zeros(m, n);
 for i = 1:m
-	for j = 1:n
+    for j = 1:n
         HE(i, j) = round(acc(G(i, j) + 1) / (m * n) * 255);
     end
 end
