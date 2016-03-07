@@ -11,8 +11,9 @@ function LT = logTransform(G)
 %                           LT = c * log(1 + G),                          %
 %                                                                         %
 %       where c is the scaling constant that is chosen to ensure the      %
-%       maximum output value in LT is 255. For here, c = 255 / (1 + R),   %
-%       where R denotes the maximum pixel value in G.                     %
+%       maximum output value in LT is 255. For here,                      %
+%       c = 255 / log(1 + R), where R denotes the maximum pixel value     %
+%       in G.                                                             %
 %                                                                         %
 %   Reference:                                                            %
 %       Reference: http://homepages.inf.ed.ac.uk/rbf/HIPR2/pixlog.htm     %
