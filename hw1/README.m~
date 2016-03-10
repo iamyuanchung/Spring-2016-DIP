@@ -179,9 +179,8 @@ saveas(bar(0:255, plotHistogram(PLT)), 'sample.power.law.hist.png');
 % Output: the 2D matrix with salt and pepper noise added                  %
 % ####################################################################### %
 
-fprintf('\nAdding Salt and Pepper noise to I ...\n');
-N1 = addSaltPepperNoise(I, 0.05);
-imwrite(uint8(N1), 'sample1.salt.pepper.png');
+fprintf('\nAdd Salt and Pepper noise to I ...\n');
+N1 = addSaltPepperNoise(I, )
 
 % ####################################################################### %
 % Implementation 2: Add the same noise as sample4.raw to image I          %
@@ -191,9 +190,7 @@ imwrite(uint8(N1), 'sample1.salt.pepper.png');
 % Output: the 2D matrix with Gaussian noise added                         %
 % ####################################################################### %
 
-fprintf('\nAdding Gaussian noise to I ...\n');
-N2 = addGaussianNoise(I, 0, 1, 10);
-imwrite(uint8(N2), 'sample1.gaussian.png');
+
 
 % ####################################################################### %
 % Implementation 3: Choose proper filters and parameters to remove the    %

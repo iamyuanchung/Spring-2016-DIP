@@ -1,7 +1,7 @@
 function PLT = powerLawTransform(G, p)
 % ####################################################################### %
 % powerLawTransform: Perform power-law transform on the given 2D image    %
-%                  matrix                                                 %
+%                    matrix                                               %
 %                                                                         %
 %   Usage:                                                                %
 %       PLT = powerLawTransform(G)                                        %

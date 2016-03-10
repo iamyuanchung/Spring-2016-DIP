@@ -1,4 +1,4 @@
-function G_out = addSaltPepperNoise(G, p)
+function PSNR = calcPSNR(G1, G2)
 % ####################################################################### %
 % addSaltPepperNoise: Add salt & pepper noise to the given 2D image       %
 %                     matrix                                              %
@@ -19,15 +19,4 @@ function G_out = addSaltPepperNoise(G, p)
 %       http://cv2.csie.ntu.edu.tw/CV/_private/chapter7.pdf               %
 % ####################################################################### %
 
-[m, n] = size(G);
-G_out = G;
-for i = 1:m
-    for j = 1:n
-       tmp = unifrnd(0, 1);
-       if tmp < p
-           G_out(i, j) = 0;
-       elseif tmp > 1 - p
-           G_out(i, j) = 255;
-       end
-    end
-end
+MSE = ((G1 - G2) .^ 2) / 
