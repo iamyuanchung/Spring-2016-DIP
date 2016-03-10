@@ -30,6 +30,9 @@
 I = readraw('./sample1.raw');
 D = readraw('./sample2.raw');
 
+imwrite(uint8(I), 'sample1.png');
+imwrite(uint8(D), 'sample2.png');
+
 % Do not display figures during execution ...
 fig = figure;
 set(fig, 'Visible', 'off');
@@ -203,7 +206,13 @@ imwrite(uint8(N2), 'sample1.gaussian.png');
 % Output: TODO                                                            %
 % ####################################################################### %
 
+fprintf('\nNoise cleaning on N1 with outlier detection ...\n')
+R1_outlier = outlierDetection(N1, 80);
+imwrite(uint8(R1_outlier), 'sample1.salt.pepper.outlier.png');
 
+fprintf('\nNoise cleaning on N1 with median filter ...\n')
+R1_median = myMedianFilter(N1);
+imwrite(uint8(R1_median), 'sample1.salt.pepper.median.png');
 
 % ####################################################################### %
 % Implementation 4: Choose proper filters and parameters to remove the    %
@@ -213,7 +222,9 @@ imwrite(uint8(N2), 'sample1.gaussian.png');
 % Output: TODO                                                            %
 % ####################################################################### %
 
-
+fprintf('\nNoise cleaning on N2 with low-pass filter ...\n')
+R2 = lowPassFilter(N2, 1);
+imwrite(uint8(R2), 'sample1.gaussian.low.pass.png');
 
 % ####################################################################### %
 % Implementation 5: Compute the PSNR value of R1.                         %
@@ -222,7 +233,8 @@ imwrite(uint8(N2), 'sample1.gaussian.png');
 % Output: TODO                                                            %
 % ####################################################################### %
 
-
+fprintf('\nThe PSNR value of R1_outlier = %f\n', calcPSNR(I, R1_outlier));
+fprintf('\nThe PSNR value of R1_median = %f\n', calcPSNR(I, R1_median));
 
 % ####################################################################### %
 % Implementation 6: Compute the PSNR value of R2.                         %
@@ -231,3 +243,4 @@ imwrite(uint8(N2), 'sample1.gaussian.png');
 % Output: TODO                                                            %
 % ####################################################################### %
 
+fprintf('\nThe PSNR value of R2 = %f\n', calcPSNR(I, R2));

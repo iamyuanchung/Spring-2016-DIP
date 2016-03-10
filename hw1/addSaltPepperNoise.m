@@ -4,7 +4,7 @@ function G_out = addSaltPepperNoise(G, p)
 %                     matrix                                              %
 %                                                                         %
 %   Usage:                                                                %
-%       G_out = addaddSaltPepperNoise(G, p)                               %
+%       G_out = addSaltPepperNoise(G, p)                                  %
 %                                                                         %
 %   Description:                                                          %
 %       For a given 2D image matrix G, salt and pepper noise is generated %
