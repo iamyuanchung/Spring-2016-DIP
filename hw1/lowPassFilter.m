@@ -1,14 +1,30 @@
 function G_fil = lowPassFilter(G, b)
 % ####################################################################### %
-%  lowPassFilter: 
+%  lowPassFilter: Perform low-pass filter to remove the noise on the      %
+%                 given 2D image matrix.                                  %
 %                                                                         %
 %   Usage:                                                                %
 %       G_fil = lowPassFilter(G, b)                                       %
 %                                                                         %
-%
+%   Description:                                                          %
+%       Low-pass filter is usually used to remove the uniform noise such  %
+%       as Gaussian noise. The general form of a 3x3 low-pass filter is   %
+%       as follows:                                                       %
+%                     [  1    b    1  ]                                   %
+%                     [  b   b^2   b  ] * 1 / (b + 2)^2.                  %
+%                     [  1    b    1  ]                                   %
+%                                                                         %
+%       The filter goes through the given image from top to bottom, from  %
+%       left to right and performs convolution. When b = 1, the new pixel %
+%       value is simply the average of those elements (9 elements) inside %
+%       the filter region.                                                %
+%                                                                         %
+%   Reference:                                                            %
+%       Course slide of lecture 2.                                        %
 % ####################################################################### %
 
-mask = ones(3, 3);
+% Create the 3x3 mask based on the given b
+mask = ones(3, 3); 
 mask(1, 2) = b;
 mask(2, 1) = b;
 mask(2, 2) = b ^ 2;
@@ -17,6 +33,8 @@ mask(3, 2) = b;
 mask = mask / (b + 2) ^ 2;
 
 [m, n] = size(G);
+
+% Expand G such that the resulting image will have the same size as G.
 G_expand = zeros(m + 2, n + 2);
 G_expand(1, 2:end - 1) = G(1, :);
 G_expand(end, 2:end - 1) = G(end, :);
