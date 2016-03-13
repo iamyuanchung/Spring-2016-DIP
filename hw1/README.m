@@ -1,7 +1,7 @@
 % ####################################################################### %
 % ###################### DIP Homework Assignment #1 ##################### %
 % ####################################################################### %
-% Submission Date: March 15, 2016                                         %
+% Submission Date: March 13, 2016                                         %
 % Name: ¡È∑∂¶w                                                             %
 % ID #: B01902040                                                         %
 % Email: iamyuanchung@gmail.com                                           %
@@ -46,8 +46,8 @@ set(fig, 'Visible', 'off');
 % Output: The vertically flipped 2D matrix                                %
 % ####################################################################### %
 
-% fprintf('\nFlipping image I vertically ...\n');
-% imwrite(uint8(flipVertical(I)), 'sample1.vertical.png');
+fprintf('\nFlipping image I vertically ...\n');
+imwrite(uint8(flipVertical(I)), 'sample1.vertical.png');
 
 % ####################################################################### %
 % Implementation 2: Flip image I horizontally.                            %
@@ -56,8 +56,8 @@ set(fig, 'Visible', 'off');
 % Output: The horizontally flipped 2D matrix                              %
 % ####################################################################### %
 
-% fprintf('\nFlipping image I horizontally ...\n');
-% imwrite(uint8(flipHorizontal(I)), 'sample1.horizontal.png');
+fprintf('\nFlipping image I horizontally ...\n');
+imwrite(uint8(flipHorizontal(I)), 'sample1.horizontal.png');
 
 
 % ####################################################################### %
@@ -70,8 +70,8 @@ set(fig, 'Visible', 'off');
 % Output: The 1D array that stores the distribution of pixel values       %
 % ####################################################################### %
 
-% fprintf('\nPlotting the histogram of image I ...\n');
-% saveas(bar(0:255, plotHistogram(I)), 'sample1.hist.png');
+fprintf('\nPlotting the histogram of image I ...\n');
+saveas(bar(0:255, plotHistogram(I)), 'sample1.hist.png');
 
 % ####################################################################### %
 % Implementation 2: Plot the histogram of D.                              %
@@ -80,8 +80,8 @@ set(fig, 'Visible', 'off');
 % Output: The 1D array that stores the distribution of pixel value        %
 % ####################################################################### %
 
-% fprintf('\nPlotting the histogram of image D ...\n');
-% saveas(bar(0:255, plotHistogram(D)), 'sample2.hist.png');
+fprintf('\nPlotting the histogram of image D ...\n');
+saveas(bar(0:255, plotHistogram(D)), 'sample2.hist.png');
 
 % ####################################################################### %
 % Implementation 3: Perform histogram equalization on D and output the    %
@@ -91,9 +91,9 @@ set(fig, 'Visible', 'off');
 % Output: the histogram equalized 2D matrix                               %
 % ####################################################################### %
 
-% fprintf('\nPerforming histogram equalization on D ...\n');
-% H = histEqual(D);
-% imwrite(uint8(H), 'sample2.hist.equal.png');
+fprintf('\nPerforming histogram equalization on D ...\n');
+H = histEqual(D);
+imwrite(uint8(H), 'sample2.hist.equal.png');
 
 % ####################################################################### %
 % Implementation 4: Perform local histogram equalization on D and output  %
@@ -103,9 +103,9 @@ set(fig, 'Visible', 'off');
 % Output: the locally equalized 2D matrix                                 %
 % ####################################################################### %
 
-% fprintf('\nPerforming local histogram equalization on D ...\n');
-% L = localHistEqual(D);
-% imwrite(uint8(L), 'sample2.local.hist.equal.png');
+fprintf('\nPerforming local histogram equalization on D ...\n');
+L = localHistEqual(D);
+imwrite(uint8(L), 'sample2.local.hist.equal.png');
 
 % ####################################################################### %
 % Implementation 5: Plot the histogram of H.                              %
@@ -114,8 +114,8 @@ set(fig, 'Visible', 'off');
 % Output: The 1D array that stores the distribution of pixel value        %
 % ####################################################################### %
 
-% fprintf('\nPlotting the histogram of H ...\n');
-% saveas(bar(0:255, plotHistogram(H)), 'sample2.hist.equal.hist.png');
+fprintf('\nPlotting the histogram of H ...\n');
+saveas(bar(0:255, plotHistogram(H)), 'sample2.hist.equal.hist.png');
 
 % ####################################################################### %
 % Implementation 6: Plot the histogram of L.                              %
@@ -124,8 +124,8 @@ set(fig, 'Visible', 'off');
 % Output: The 1D array that stores the distribution of pixel value        %
 % ####################################################################### %
 
-% fprintf('\nPlotting the histogram of L ...\n');
-% saveas(bar(0:255, plotHistogram(L)), 'sample2.local.hist.equal.hist.png');
+fprintf('\nPlotting the histogram of L ...\n');
+saveas(bar(0:255, plotHistogram(L)), 'sample2.local.hist.equal.hist.png');
 
 % ####################################################################### %
 % Implementation 7: Perform the log transform on D and output the         %
@@ -135,11 +135,11 @@ set(fig, 'Visible', 'off');
 % Output: The 2D matrix enhanced by log transform                         %
 % ####################################################################### %
 
-% fprintf('\nPerforming log transform on D and plot the corresponding histogram ...\n');
-% LT = logTransform(D);
-% imwrite(uint8(LT), 'sample2.log.png');
-% 
-% saveas(bar(0:255, plotHistogram(LT)), 'sample2.log.hist.png');
+fprintf('\nPerforming log transform on D and plot the corresponding histogram ...\n');
+LT = logTransform(D);
+imwrite(uint8(LT), 'sample2.log.png');
+
+saveas(bar(0:255, plotHistogram(LT)), 'sample2.log.hist.png');
 
 % ####################################################################### %
 % Implementation 8: Perform the inverse log transform on D and output     %
@@ -149,11 +149,11 @@ set(fig, 'Visible', 'off');
 % Output: The 2D matrix enhanced by inverse log transform                 %
 % ####################################################################### %
 
-% fprintf('\nPerforming inverse log transform on D and plot the corresponding histogram ...\n');
-% ILT = invLogTransform(D);
-% imwrite(uint8(ILT), 'sample.inv.log.png');
-% 
-% saveas(bar(0:255, plotHistogram(ILT)), 'sample2.inv.log.hist.png');
+fprintf('\nPerforming inverse log transform on D and plot the corresponding histogram ...\n');
+ILT = invLogTransform(D);
+imwrite(uint8(ILT), 'sample2.inv.log.png');
+
+saveas(bar(0:255, plotHistogram(ILT)), 'sample2.inv.log.hist.png');
 
 % ####################################################################### %
 % Implementation 9: Perform the power-law transform on D and output the   %
@@ -163,11 +163,11 @@ set(fig, 'Visible', 'off');
 % Output: The 2D matrix enhanced by power-law trnasform                   %
 % ####################################################################### %
 
-% fprintf('\nPerforming power-law transform on D and plot the corresponding histogram ...\n');
-% PLT = powerLawTransform(D, 0.5);
-% imwrite(uint8(PLT), 'sample2.power.law.png');
-% 
-% saveas(bar(0:255, plotHistogram(PLT)), 'sample.power.law.hist.png');
+fprintf('\nPerforming power-law transform on D and plot the corresponding histogram ...\n');
+PLT = powerLawTransform(D, 1);
+imwrite(uint8(PLT), 'sample2.power.law.100.png');
+
+saveas(bar(0:255, plotHistogram(PLT)), 'sample2.power.law.hist.100.png');
 
 
 % ####################################################################### %
@@ -181,9 +181,9 @@ set(fig, 'Visible', 'off');
 % Output: The 2D matrix with salt and pepper noise added                  %
 % ####################################################################### %
 
-% fprintf('\nAdding Salt and Pepper noise to I ...\n');
-% N1 = addSaltPepperNoise(I, 0.005);
-% imwrite(uint8(N1), 'sample1.salt.pepper.png');
+fprintf('\nAdding Salt and Pepper noise to I ...\n');
+N1 = addSaltPepperNoise(I, 0.005);
+imwrite(uint8(N1), 'sample1.salt.pepper.png');
 
 % ####################################################################### %
 % Implementation 2: Add the same noise as sample4.raw to image I          %
@@ -193,9 +193,9 @@ set(fig, 'Visible', 'off');
 % Output: The 2D matrix with Gaussian noise added                         %
 % ####################################################################### %
 
-% fprintf('\nAdding Gaussian noise to I ...\n');
-% N2 = addGaussianNoise(I, 0, 1, 10);
-% imwrite(uint8(N2), 'sample1.gaussian.png');
+fprintf('\nAdding Gaussian noise to I ...\n');
+N2 = addGaussianNoise(I, 0, 1, 10);
+imwrite(uint8(N2), 'sample1.gaussian.png');
 
 % ####################################################################### %
 % Implementation 3: Choose proper filters and parameters to remove the    %
@@ -207,13 +207,13 @@ set(fig, 'Visible', 'off');
 % Output: The filtered 2D image matrix                                    %
 % ####################################################################### %
 
-% fprintf('\nNoise cleaning on N1 with outlier detection ...\n')
-% R1_outlier = outlierDetection(N1, 60);
-% imwrite(uint8(R1_outlier), 'sample1.salt.pepper.outlier.60.png');
+fprintf('\nNoise cleaning on N1 with outlier detection ...\n')
+R1_outlier = outlierDetection(N1, 65);
+imwrite(uint8(R1_outlier), 'sample1.salt.pepper.outlier.65.png');
 
-% fprintf('\nNoise cleaning on N1 with median filter ...\n')
-% R1_median = myMedianFilter(N1);
-% imwrite(uint8(R1_median), 'sample1.salt.pepper.median.png');
+fprintf('\nNoise cleaning on N1 with median filter ...\n')
+R1_median = myMedianFilter(N1);
+imwrite(uint8(R1_median), 'sample1.salt.pepper.median.png');
 
 % ####################################################################### %
 % Implementation 4: Choose proper filters and parameters to remove the    %
@@ -234,8 +234,8 @@ imwrite(uint8(R2), 'sample1.gaussian.low.pass.10.png');
 % Output: The PSNR value                                                  %
 % ####################################################################### %
 
-% fprintf('\nThe PSNR value of R1_outlier = %f\n', calcPSNR(I, R1_outlier));
-% fprintf('\nThe PSNR value of R1_median = %f\n', calcPSNR(I, R1_median));
+fprintf('\nThe PSNR value of R1_outlier = %f\n', calcPSNR(I, R1_outlier));
+fprintf('\nThe PSNR value of R1_median = %f\n', calcPSNR(I, R1_median));
 
 % ####################################################################### %
 % Implementation 6: Compute the PSNR value of R2.                         %
