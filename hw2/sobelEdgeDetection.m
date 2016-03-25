@@ -1,13 +1,13 @@
-function EM = sobelEdgeDetection(G)
+function [Gr, Gc, EM] = sobelEdgeDetection(G)
 % ####################################################################### %
 % sobelEdgeDetection: Perform Sobel edge detection on the given 2D image  %
 %                     matrix                                              %
 %                                                                         %
 %   Usage:                                                                %
-%       EM = sobelEdgeDetection(G)                                        %
+%       [Gr, Gc, EM] = sobelEdgeDetection(G)                              %
 %                                                                         %
 %   Reference:                                                            %
-%       Page 15 of DIP_Lecture03_2016_Spring.pdf                          %
+%       [1] https://en.wikipedia.org/wiki/Sobel_operator                  %
 % ####################################################################### %
 
 [m, n] = size(G);
@@ -28,18 +28,17 @@ G_expand(2:end - 1, 2:end - 1) = G;
 Gr = zeros(m, n);
 Gc = zeros(m, n);
 
+% define the two sobel filters
+Kr = [-1, 0, 1; -2, 0, 2; -1, 0, 1];
+Kc = [1, 2, 1; 0, 0, 0; -1, -2, -1];
+
 % perform sobel edge detection
 for i = 1:m
     for j = 1:n
-        Gr(i, j) = (G_expand(i, j + 2) + 2 * G_expand(i + 1, j + 2) + G_expand(i + 2, j + 2)) ...
-                 - (G_expand(i, j) + 2 * G_expand(i + 1, j) + G_expand(i + 2, j));
-        Gc(i, j) = (G_expand(i, j) + 2 * G_expand(i, j + 1) + G_expand(i, j + 2)) ...
-                 - (G_expand(i + 2, j) + 2 * G_expand(i + 2, j + 1) + G_expand(i + 2, j + 2));
+        Gr(i, j) = sum(sum(G_expand(i: i + 2, j:j + 2) .* Kr));
+        Gc(i, j) = sum(sum(G_expand(i: i + 2, j:j + 2) .* Kc));
     end
 end
-
-Gr = Gr / 4;
-Gc = Gc / 4;
 
 % compute and store the gradient magnitude in EM (edge map)
 EM = (Gr .^ 2 + Gc .^ 2) .^ 0.5;

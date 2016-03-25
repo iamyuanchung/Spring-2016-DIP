@@ -27,7 +27,7 @@ S8 = readraw('./raw/sample8.raw');
 
 % create a directory called 'rslt_images' and all the output .png figures
 % will be stored under it
-mkdir('./', 'rslt_images');
+% mkdir('./', 'rslt_images');
 
 % do not display figures during execution
 fig = figure;
@@ -39,22 +39,20 @@ set(fig, 'Visible', 'off');
 % ####################################################################### %
 % Implementation 1: Perform Sobel edge detection on S1, S2, and S3        %
 % M-file name: sobelEdgeDetection.m                                       %
-% Usage: EM1 = sobelEdgeDetection(S1)                                     %
-%        EM2 = sobelEdgeDetection(S2)                                     %
-%        EM3 = sobelEdgeDetection(S3)                                     %
+% Usage: [Gr, Gc, EM] = sobelEdgeDetection(G)                             %
 % Output: The resultant edge map(EM)                                      %
 % ####################################################################### %
 
 fprintf('\nPerforming Sobel edge detection on sample1.raw and the resultant edge map will be stored as sample1.sobel.png ...\n');
-EM1 = sobelEdgeDetection(S1);
+[no_use0, no_use1, EM1] = sobelEdgeDetection(S1);
 imwrite(uint8(EM1), './rslt_images/sample1.sobel.png');
 
 fprintf('\nPerforming Sobel edge detection on sample2.raw and the resultant edge map will be stored as sample2.sobel.png ...\n');
-EM2 = sobelEdgeDetection(S2);
+[no_use2, no_use3, EM2] = sobelEdgeDetection(S2);
 imwrite(uint8(EM2), './rslt_images/sample2.sobel.png');
 
 fprintf('\nPerforming Sobel edge detection on sample3.raw and the resultant edge map will be stored as sample3.sobel.png ...\n');
-EM3 = sobelEdgeDetection(S3);
+[no_use4, no_use5, EM3] = sobelEdgeDetection(S3);
 imwrite(uint8(EM3), './rslt_images/sample3.sobel.png');
 
 
@@ -78,3 +76,4 @@ imwrite(uint8(EM3), './rslt_images/sample3.sobel.png');
 % Usage:
 % Output:
 % ####################################################################### %
+
