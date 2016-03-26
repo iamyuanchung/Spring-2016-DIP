@@ -1,10 +1,10 @@
-function [Gr, Gc, EM] = sobelEdgeDetection(G)
+function [Gr, Gc, EM] = sobelEdgeDetection(G, T)
 % ####################################################################### %
 % sobelEdgeDetection: Perform Sobel edge detection on the given 2D image  %
 %                     matrix                                              %
 %                                                                         %
 %   Usage:                                                                %
-%       [Gr, Gc, EM] = sobelEdgeDetection(G)                              %
+%       [Gr, Gc, EM] = sobelEdgeDetection(G, T)                           %
 %                                                                         %
 %   Reference:                                                            %
 %       [1] https://en.wikipedia.org/wiki/Sobel_operator                  %
@@ -42,3 +42,6 @@ end
 
 % compute and store the gradient magnitude in EM (edge map)
 EM = (Gr .^ 2 + Gc .^ 2) .^ 0.5;
+
+% only gradient pixel > T can be the edge pixels
+EM = (EM > T) * 255.;
