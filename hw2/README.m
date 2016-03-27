@@ -45,21 +45,44 @@ set(fig, 'Visible', 'off');
 % Output: The resultant edge map(EM)                                      %
 % ####################################################################### %
 
-% T1 = 100;
-% T2 = 200;
-% T3 = 150;
-% 
-% fprintf('\nPerforming Sobel edge detection on sample1.raw and the resultant edge map will be stored as sample1.sobel.png ...\n');
-% [no_use0, no_use1, EM1] = sobelEdgeDetection(S1, T1);
-% imwrite(uint8(EM1), './rslt_images/sample1.sobel.png');
-% 
-% fprintf('\nPerforming Sobel edge detection on sample2.raw and the resultant edge map will be stored as sample2.sobel.png ...\n');
-% [no_use2, no_use3, EM2] = sobelEdgeDetection(S2, T2);
-% imwrite(uint8(EM2), './rslt_images/sample2.sobel.png');
-% 
-% fprintf('\nPerforming Sobel edge detection on sample3.raw and the resultant edge map will be stored as sample3.sobel.png ...\n');
-% [no_use4, no_use5, EM3] = sobelEdgeDetection(S3, T3);
-% imwrite(uint8(EM3), './rslt_images/sample3.sobel.png');
+T1 = 100;
+T2 = 200;
+T3 = 150;
+
+fprintf('\nPerforming Sobel edge detection on sample1.raw and the resultant edge map will be stored as sample1.sobel.png ...\n');
+[no_use0, no_use1, EM1] = sobelEdgeDetection(S1, T1);
+imwrite(uint8(EM1), './rslt_images/sample1.sobel.png');
+
+fprintf('\nPerforming Sobel edge detection on sample2.raw and the resultant edge map will be stored as sample2.sobel.png ...\n');
+[no_use2, no_use3, EM2] = sobelEdgeDetection(S2, T2);
+imwrite(uint8(EM2), './rslt_images/sample2.sobel.png');
+
+fprintf('\nPerforming Sobel edge detection on sample3.raw and the resultant edge map will be stored as sample3.sobel.png ...\n');
+[no_use4, no_use5, EM3] = sobelEdgeDetection(S3, T3);
+imwrite(uint8(EM3), './rslt_images/sample3.sobel.png');
+
+% ####################################################################### %
+% Implementation 2: Perform Laplacian of Gaussian (LoG) on S1, S2, and S3 %
+% M-file name: laplacianOfGaussian.m                                      %
+% Usage: EM = laplacianOfGaussian(G, filter_size)                         %
+% Output: The resultant edge map(EM)                                      %
+% ####################################################################### %
+
+filter_size_1 = 9;
+filter_size_2 = 9;
+filter_size_3 = 9;
+
+fprintf('\nPerforming Laplacian of Gaussian (LoG) on sample1.raw and the resultant edge map will be stored as sample1.LoG.png ...\n');
+EM1 = laplacianOfGaussian(S1, filter_size_1);
+imwrite(uint8(EM1), './rslt_images/sample1.LoG.png');
+
+fprintf('\nPerforming Laplacian of Gaussian (LoG) on sample2.raw and the resultant edge map will be stored as sample2.LoG.png ...\n');
+EM2 = laplacianOfGaussian(S2, filter_size_2);
+imwrite(uint8(EM2), './rslt_images/sample2.LoG.png');
+
+fprintf('\nPerforming Laplacian of Gaussian (LoG) on sample3.raw and the resultant edge map will be stored as sample3.LoG.png ...\n');
+EM3 = laplacianOfGaussian(S3, filter_size_3);
+imwrite(uint8(EM3), './rslt_images/sample3.LoG.png');
 
 % ####################################################################### %
 % Implementation 3: Perform Canny edge detection on S1, S2, and S3        %
@@ -68,25 +91,25 @@ set(fig, 'Visible', 'off');
 % Output: The resultant edge map(EM)                                      %
 % ####################################################################### %
 
-% T1_low = 20;
-% T1_high = 80;
-% T2_low = 20;
-% T2_high = 80;
-% T3_low = 20;
-% T3_high = 80;
-% 
-% fprintf('\nPerforming Canny edge detection on sample1.raw and the resultant edge map will be stored as sample1.canny.png ...\n');
-% EM1 = cannyEdgeDetection(S1, T1_high, T1_low);
-% imwrite(uint8(EM1), './rslt_images/sample1.canny.png');
-% 
-% fprintf('\nPerforming Canny edge detection on sample2.raw and the resultant edge map will be stored as sample2.canny.png ...\n');
-% EM2 = cannyEdgeDetection(S2, T2_high, T2_low);
-% imwrite(uint8(EM2), './rslt_images/sample2.canny.png');
-% 
-% 
-% fprintf('\nPerforming Canny edge detection on sample3.raw and the resultant edge map will be stored as sample3.canny.png ...\n');
-% EM3 = cannyEdgeDetection(S3, T3_high, T3_low);
-% imwrite(uint8(EM3), './rslt_images/sample3.canny.png');
+T1_low = 20;
+T1_high = 80;
+T2_low = 20;
+T2_high = 80;
+T3_low = 20;
+T3_high = 80;
+
+fprintf('\nPerforming Canny edge detection on sample1.raw and the resultant edge map will be stored as sample1.canny.png ...\n');
+EM1 = cannyEdgeDetection(S1, T1_high, T1_low);
+imwrite(uint8(EM1), './rslt_images/sample1.canny.png');
+
+fprintf('\nPerforming Canny edge detection on sample2.raw and the resultant edge map will be stored as sample2.canny.png ...\n');
+EM2 = cannyEdgeDetection(S2, T2_high, T2_low);
+imwrite(uint8(EM2), './rslt_images/sample2.canny.png');
+
+
+fprintf('\nPerforming Canny edge detection on sample3.raw and the resultant edge map will be stored as sample3.canny.png ...\n');
+EM3 = cannyEdgeDetection(S3, T3_high, T3_low);
+imwrite(uint8(EM3), './rslt_images/sample3.canny.png');
 
 % ####################################################################### %
 % ################# Problem 2: Geometrical Modification ################# %
