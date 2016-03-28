@@ -70,7 +70,7 @@ end
 
 % Step #2: Compute gradient using sobel filter and store the gradients
 %          magnitude in G_grad
-[Gr, Gc, no_use] = sobelEdgeDetection(G_smoothed, 0);
+[Gr, Gc, ~] = sobelEdgeDetection(G_smoothed, 0);
 G_grad = (Gr .^ 2 + Gc .^ 2) .^ 0.5;
 
 % Step #3: Non-maximal suppression - preserve all local maximas and rG_gradove
