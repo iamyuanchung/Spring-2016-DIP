@@ -28,14 +28,14 @@ S7 = readraw('./raw/sample7.raw');
 S8 = readraw('./raw/sample8.raw');
 
 % output S1 ~ S8 as .png images
-% imwrite(uint8(S1), './sample1.png');
-% imwrite(uint8(S2), './sample2.png');
-% imwrite(uint8(S3), './sample3.png');
-% imwrite(uint8(S4), './sample4.png');
-% imwrite(uint8(S5), './sample5.png');
-% imwrite(uint8(S6), './sample6.png');
-% imwrite(uint8(S7), './sample7.png');
-% imwrite(uint8(S8), './sample8.png');
+% imwrite(uint8(S1), './rslt_images/sample1.png');
+% imwrite(uint8(S2), './rslt_images/sample2.png');
+% imwrite(uint8(S3), './rslt_images/sample3.png');
+% imwrite(uint8(S4), './rslt_images/sample4.png');
+% imwrite(uint8(S5), './rslt_images/sample5.png');
+% imwrite(uint8(S6), './rslt_images/sample6.png');
+% imwrite(uint8(S7), './rslt_images/sample7.png');
+% imwrite(uint8(S8), './rslt_images/sample8.png');
 
 % create a directory called 'rslt_images' and all the output .png figures
 % will be stored under it
@@ -44,6 +44,7 @@ S8 = readraw('./raw/sample8.raw');
 % do not display figures during execution
 % fig = figure;
 % set(fig, 'Visible', 'off');
+
 
 % ####################################################################### %
 % ###################### Problem 1: Edge Detection ###################### %
@@ -121,18 +122,33 @@ S8 = readraw('./raw/sample8.raw');
 % EM3 = cannyEdgeDetection(S3, T3_high, T3_low);
 % imwrite(uint8(EM3), './rslt_images/sample3.canny.png');
 
+
 % ####################################################################### %
 % ################# Problem 2: Geometrical Modification ################# %
 % ####################################################################### %
 % ####################################################################### %
-% Implementation 1:
-% M-file name:
-% Usage:
-% Output:
+% Implementation 1: Stitch sample4 ~ 7.raw into one complete image R and  %
+%                   paint the residual regions in black. Also, crop the   %
+%                   largest square in R and output it as S                %
+% M-file name: stitchFourImages.m                                         %
+% Usage: [R, S] = stitchFourImages(S4, S5, S6, S7)                        %
+% Output: R and S, which are described as above                           %
 % ####################################################################### %
 
-R = stichFourImages(S4, S5, S6, S7);
-imwrite(uint8(R), './S.png');
+% fprintf('\nStitching sample4.raw, sample5.raw, sample6.raw, and sample7.raw ...\n');
+% [R, S] = stitchFourImages(S4, S5, S6, S7);
+% imwrite(uint8(R), './rslt_images/sample4_5_6_7.png');
+% imwrite(uint8(S), './rslt_images/sample4_5_6_7_crop.png');
+
+% ####################################################################### %
+% Implementation 2: 
+% M-file name: 
+% Usage: 
+% Output: 
+% ####################################################################### %
+
+
+
 
 % ####################################################################### %
 % ##################### Problem 3: Texture Analysis ##################### %
