@@ -9,7 +9,7 @@ function G_grad = cannyEdgeDetection(G, T_high, T_low)
 %   Description:                                                          %
 %       Canny edge detection includes 5 steps:                            %
 %                                                                         %
-%       1. Smoothing: we use a Gaussian smoothing filter to reduce        %
+%       1. Smoothing: we use a Gaussian smoothing filter to reduce the    %
 %          noise, here we use a 5 x 5 Gaussian filter and set £m = 1.4     %
 %                                                                         %
 %       2. Finding large magnitude of gradients: we use the Sobel edge    %
@@ -18,7 +18,7 @@ function G_grad = cannyEdgeDetection(G, T_high, T_low)
 %       3. Non-maximal suppression: after Sobel edge detection method is  %
 %          applied, we preserve only the local maximas of the gradient    %
 %          map G_grad. This is done by comparing each gradient pixel      %
-%          G_grad(i, j) with two of its neigobor pixels, and only when    %
+%          G_grad(i, j) with two of its neighbor pixels, and only when    %
 %          G_grad(i, j) is greater than both of its neighbor pixels will  %
 %          it be preserved. The neighbor pixels to be compared with are   %
 %          determined by G_grad(i, j)'s gradient orientation.             %

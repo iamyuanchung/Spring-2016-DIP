@@ -11,8 +11,8 @@ function [Gr, Gc, EM] = sobelEdgeDetection(G, T)
 %       methods for detecting the edges of objects in an image.           %
 %       By convolving the given image G with two Sobel filters Kr and     %
 %       Kc, the method generates the row and column gradients Gr and Gc.  %
-%       The resulting gradient approximations G_grad can be combined      %
-%       to give the gradient magnitude, using:                            %
+%       The resultant gradient approximations G_grad can be obtained by   %
+%       combining Gr and Gc, using:                                       %
 %                                                                         %     
 %            G_grad(i, j) = (Gr(i, j) ^ 2 + Gc(i, j) ^ 2) ^ 0.5           %
 %                                                                         %
