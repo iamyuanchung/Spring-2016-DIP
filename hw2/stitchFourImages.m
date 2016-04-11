@@ -1,6 +1,6 @@
 function [R, S] = stitchFourImages(S4, S5, S6, S7)
 % ####################################################################### %
-% stitchFourImage: stitch S4, S5, S6, and S7 toghether as required         %
+% stitchFourImage: stitch S4, S5, S6, and S7 toghether as required        %
 %                                                                         %
 %   Usage:                                                                %
 %       [R, S] = stitchFourImages(S4, S5, S6, S7)                         %

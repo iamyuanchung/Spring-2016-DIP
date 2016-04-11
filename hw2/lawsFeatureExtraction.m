@@ -1,10 +1,10 @@
-function FM = lawsFeatureExtraction(G, window_size)
+function FM = lawsFeatureExtraction(G, w)
 % ####################################################################### %
 % lawsFeatureExtraction: Using Laws' method for extracting features of a  %
 %                        given 2D image matrix                            %
 %                                                                         %
 %   Usage:                                                                %
-%       FM = lawsFeatureExtraction(G, window_size)                        %
+%       FM = lawsFeatureExtraction(G, w)                                  %
 %                                                                         %
 %   Reference:                                                            %
 %       [1] Page 17 ~ 26 of DIP_Lecture05_2016_Spring.pdf                 %
@@ -101,91 +101,91 @@ for i = 1:m
 end
 
 % now we have M1 ~ M9, the next step is to extract features over a window
-% that has a few cycles  of the repetitive texture, and the feature
+% that has a few cycles of the repetitive texture, and the feature
 % extractions are done by computing region energy
-% the argument window_size determines the window size for computing the
+% the argument w determines the window size for computing the
 % region energy, and the obtained local features are stored in T1 ~ T9
 fprintf('\n    Computing region energy of M1 and producing T1 ...\n');
 T1 = zeros(m, n);
 % extend the boundary of M1 to meet the given window size
-M1_extend = wextend('2D', 'sym', M1, (window_size - 1) / 2);
+M1_extend = wextend('2D', 'sym', M1, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
         % region energy is defined as the sum of the square of intensities
         % within current window
-        T1(i, j) = sum(sum(M1_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T1(i, j) = sum(sum(M1_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M2 and producing T2 ...\n');
 T2 = zeros(m, n);
-M2_extend = wextend('2D', 'sym', M2, (window_size - 1) / 2);
+M2_extend = wextend('2D', 'sym', M2, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T2(i, j) = sum(sum(M2_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T2(i, j) = sum(sum(M2_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M3 and producing T3 ...\n');
 T3 = zeros(m, n);
-M3_extend = wextend('2D', 'sym', M3, (window_size - 1) / 2);
+M3_extend = wextend('2D', 'sym', M3, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T3(i, j) = sum(sum(M3_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T3(i, j) = sum(sum(M3_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M4 and producing T4 ...\n');
 T4 = zeros(m, n);
-M4_extend = wextend('2D', 'sym', M4, (window_size - 1) / 2);
+M4_extend = wextend('2D', 'sym', M4, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T4(i, j) = sum(sum(M4_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T4(i, j) = sum(sum(M4_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M5 and producing T5 ...\n');
 T5 = zeros(m, n);
-M5_extend = wextend('2D', 'sym', M5, (window_size - 1) / 2);
+M5_extend = wextend('2D', 'sym', M5, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T5(i, j) = sum(sum(M5_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T5(i, j) = sum(sum(M5_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M6 and producing T6 ...\n');
 T6 = zeros(m, n);
-M6_extend = wextend('2D', 'sym', M6, (window_size - 1) / 2);
+M6_extend = wextend('2D', 'sym', M6, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T6(i, j) = sum(sum(M6_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T6(i, j) = sum(sum(M6_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M7 and producing T7 ...\n');
 T7 = zeros(m, n);
-M7_extend = wextend('2D', 'sym', M7, (window_size - 1) / 2);
+M7_extend = wextend('2D', 'sym', M7, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T7(i, j) = sum(sum(M7_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T7(i, j) = sum(sum(M7_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M8 and producing T8 ...\n');
 T8 = zeros(m, n);
-M8_extend = wextend('2D', 'sym', M8, (window_size - 1) / 2);
+M8_extend = wextend('2D', 'sym', M8, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T8(i, j) = sum(sum(M8_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T8(i, j) = sum(sum(M8_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 
 fprintf('\n    Computing region energy of M9 and producing T9 ...\n');
 T9 = zeros(m, n);
-M9_extend = wextend('2D', 'sym', M9, (window_size - 1) / 2);
+M9_extend = wextend('2D', 'sym', M9, (w - 1) / 2);
 for i = 1:m
     for j = 1:n
-        T9(i, j) = sum(sum(M9_extend(i:i + window_size - 1, j:j + window_size - 1) .^ 2));
+        T9(i, j) = sum(sum(M9_extend(i:i + w - 1, j:j + w - 1) .^ 2));
     end
 end
 

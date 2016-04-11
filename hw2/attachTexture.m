@@ -28,10 +28,10 @@ giraffe_upper_left_i = 220;
 giraffe_upper_left_j = 440;
 giraffe_texture_size = 30;
 giraffe_texture = S8(giraffe_upper_left_i:giraffe_upper_left_i + giraffe_texture_size, giraffe_upper_left_j:giraffe_upper_left_j + giraffe_texture_size);
-O(giraffe_upper_left_i - 1, giraffe_upper_left_j - 1:giraffe_upper_left_j + giraffe_texture_size) = 255;
-O(giraffe_upper_left_i + giraffe_texture_size, giraffe_upper_left_j - 1:giraffe_upper_left_j + giraffe_texture_size) = 255;
-O(giraffe_upper_left_i - 1:giraffe_upper_left_i + giraffe_texture_size, giraffe_upper_left_j - 1) = 255;
-O(giraffe_upper_left_i - 1:giraffe_upper_left_i + giraffe_texture_size, giraffe_upper_left_j + giraffe_texture_size) = 255;
+% O(giraffe_upper_left_i - 1, giraffe_upper_left_j - 1:giraffe_upper_left_j + giraffe_texture_size) = 255;
+% O(giraffe_upper_left_i + giraffe_texture_size, giraffe_upper_left_j - 1:giraffe_upper_left_j + giraffe_texture_size) = 255;
+% O(giraffe_upper_left_i - 1:giraffe_upper_left_i + giraffe_texture_size, giraffe_upper_left_j - 1) = 255;
+% O(giraffe_upper_left_i - 1:giraffe_upper_left_i + giraffe_texture_size, giraffe_upper_left_j + giraffe_texture_size) = 255;
 % imshow(uint8(O));
 % attach the textures onto the corresponding animals
 zebra_pure = zeros(m, n);
@@ -88,7 +88,7 @@ for i = 1:256
     end
 end
 for i = 270:m
-    for j = 400:n
+    for j = 1:400
         if L(i, j) == 80
             C(i, j) = leopard_pure(i, j);
         end

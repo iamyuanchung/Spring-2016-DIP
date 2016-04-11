@@ -176,8 +176,8 @@ S8 = readraw('./raw/sample8.raw');
 %         the size of S8                                                  %
 % ####################################################################### %
 
-% fprintf('\nExtracting the feature matrix of sample8.raw using Laws method ...\n');
-% FM = lawsFeatureExtraction(S8, 13);
+fprintf('\nExtracting the feature matrix of sample8.raw using Laws method ...\n');
+FM = lawsFeatureExtraction(S8, 13);
 
 % ####################################################################### %
 % Implementation 2: Use k-means to classify each pixel and label same     %
@@ -188,8 +188,8 @@ S8 = readraw('./raw/sample8.raw');
 % Output: the image where same texture is labeled with same intensity     %
 % ####################################################################### %
 
-% fprintf('\nClassifying pixels using K-means ...\n');
-% L = classifyPixels(FM, 4, 512, 512);
+fprintf('\nClassifying pixels using K-means ...\n');
+L = classifyPixels(FM, 4, 512, 512);
 % imwrite(uint8(L), './rslt_images/kmeans_animals.png');
 
 % ####################################################################### %
@@ -200,6 +200,6 @@ S8 = readraw('./raw/sample8.raw');
 % Output: the image where each animal has correct texture                 %
 % ####################################################################### %
 
-% fprintf('\nAttaching the right texture to each animal ...\n');
-% C = attachTexture(S8, L);
+fprintf('\nAttaching the right texture to each animal ...\n');
+C = attachTexture(S8, L);
 % imwrite(uint8(C), './rslt_images/my_attach.png');
