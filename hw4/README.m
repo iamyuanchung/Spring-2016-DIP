@@ -24,7 +24,7 @@ mkdir('./', 'rslt_images');
 
 % output S1 ~ S3 and TS as .png images
 % imwrite(uint8(S1), './rslt_images/Sample1.png');
-imwrite(uint8(TS), './rslt_images/TrainingSet.png')
+% imwrite(uint8(TS), './rslt_images/TrainingSet.png')
 % imwrite(uint8(S2), './rslt_images/Sample2.png');
 % imwrite(uint8(S3), './rslt_images/Sample3.png');
 

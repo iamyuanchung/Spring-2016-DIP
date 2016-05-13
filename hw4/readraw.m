@@ -9,8 +9,12 @@ function G = readraw(filename)
     fclose(fid);
     [Y, X] = size(pixel);
     Size = (Y * X);
-    N = sqrt(Size);
-    G = zeros(N, N);
+    if (strcmp(filename, './raw/TrainingSet.raw') == 1)
+        G = zeros(450, 248);
+    else
+        N = sqrt(Size);
+        G = zeros(N, N);
+    end
     G(1:Size) = pixel(1:Size);
     G = G';
 end
