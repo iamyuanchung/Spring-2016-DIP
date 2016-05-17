@@ -43,7 +43,7 @@ set(fig, 'Visible', 'off');
 % Output: 
 % ####################################################################### %
 
-C = shapeAnalysis(S1, TS);
+% C = shapeAnalysis(S1, TS);
 
 % ####################################################################### %
 % ################# Problem 2: Morphological Processing ################# %
@@ -55,7 +55,20 @@ C = shapeAnalysis(S1, TS);
 % Output: 
 % ####################################################################### %
 
+fprintf('\n    Skeletonizing Sample2.raw ...\n');
+SKT = skeletonizeImage(S2);
+imwrite(uint8(SKT), './rslt_images/Sample2_skeletonized.png');
 
+% fprintf('\n    Extracting the boundary of Sample2.raw ...\n');
+% B = extractBoundary(S2);
+% imwrite(uint8(B), './rslt_images/Sample2_boundary.png');
+% 
+% fprintf('\n    Smoothing the boundary of Sample2.raw using opening operator ...\n');
+%  % specify the radius of the round kernel here
+% radius = 8;
+% H = createRoundKernel(radius);
+% O = opening(S2, H);
+% imwrite(uint8(O), './rslt_images/Sample2_opened.png');
 
 % ####################################################################### %
 % ################ Problem 3: Frequency-domain Filtering ################ %
