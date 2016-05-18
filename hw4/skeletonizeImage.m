@@ -83,7 +83,7 @@ while (1)
         end
     end
 
-    % uncomment this line if you want to save and output the conditioned mask
+    % uncomment this line if you want to savet the conditioned mask
     % generated in each epoch
     imwrite(uint8(M * 255), ['./rslt_images/epoch', num2str(epoch), '.png']);
     epoch = epoch + 1;
