@@ -55,10 +55,10 @@ set(fig, 'Visible', 'off');
 % Output: 
 % ####################################################################### %
 
-fprintf('\n    Skeletonizing Sample2.raw ...\n');
-SKT = skeletonizeImage(S2);
-imwrite(uint8(SKT), './rslt_images/Sample2_skeletonized.png');
-
+% fprintf('\n    Skeletonizing Sample2.raw ...\n');
+% K = skeletonizeImage(S2);
+% imwrite(uint8(K), './rslt_images/Sample2_skeletonized.png');
+% 
 % fprintf('\n    Extracting the boundary of Sample2.raw ...\n');
 % B = extractBoundary(S2);
 % imwrite(uint8(B), './rslt_images/Sample2_boundary.png');
