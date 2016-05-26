@@ -3,7 +3,7 @@ function count = shapeAnalysis(S1, TS)
 
 % remove the noisy background
 S1 = (S1 > 0) * 255;
-% imwrite(uint8(S1), './rslt_images/Sample1_clean.png');
+imwrite(uint8(S1), './rslt_images/Sample1_clean.png');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% heuristic trimming %%%
@@ -11,7 +11,7 @@ S1 = (S1 > 0) * 255;
 % binarize TrainingSet.raw such that there will only be 0 or 255 pixel
 % value
 TS = (TS >= 128) * 255;
-% imwrite(uint8(TS), './rslt_images/TrainingSet_bin.png')
+imwrite(uint8(TS), './rslt_images/TrainingSet_bin.png')
 TS = TS(10:240, 8:441);
 
 [m, n] = size(TS);
@@ -28,9 +28,9 @@ end
 mkdir('./rslt_images/', 'Q1_classes/');
 
 n_class = length(data); % total number of classes (different characters) = 70
-% for i = 1:n_class
-%     imwrite(uint8(data(:, :, i)), ['./rslt_images/Q1_classes/class', num2str(i), '.png']);
-% end
+for i = 1:n_class
+    imwrite(uint8(data(:, :, i)), ['./rslt_images/Q1_classes/class', num2str(i), '.png']);
+end
 
 Cls = {};
 for i = 1:n_class
@@ -43,9 +43,9 @@ for i = 1:n_class
     Cls{end + 1} = data(top:bottom, left:right, i);
 end
 
-% for i = 1:n_class
-%     imwrite(uint8(Cls{i}), ['./rslt_images/Q1_classes/class', num2str(i), '_trim.png']);
-% end
+for i = 1:n_class
+    imwrite(uint8(Cls{i}), ['./rslt_images/Q1_classes/class', num2str(i), '_trim.png']);
+end
 
 mkdir('./rslt_images/', 'Q1_instances/');
 
@@ -53,9 +53,9 @@ mkdir('./rslt_images/', 'Q1_instances/');
 % cell array Ins, where Ins{i} denotes the i-th instance
 Ins = signSegment(S1, {}, 1);
 n_instance = length(Ins); % n_instance = 22
-% for i = 1:n_instance
-%     imwrite(uint8(Ins{i}), ['./rslt_images/Q1_instances/instance', num2str(i), '.png']);
-% end
+for i = 1:n_instance
+    imwrite(uint8(Ins{i}), ['./rslt_images/Q1_instances/instance', num2str(i), '.png']);
+end
 
 count = zeros(n_class, 1);
 for i = 1:n_instance
