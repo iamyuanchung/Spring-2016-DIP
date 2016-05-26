@@ -43,7 +43,7 @@ set(fig, 'Visible', 'off');
 % Output: 
 % ####################################################################### %
 
-count = shapeAnalysis(S1, TS);
+% count = shapeAnalysis(S1, TS);
 % Accuracy: 16/22 = 73%
 
 % ####################################################################### %
@@ -83,10 +83,12 @@ count = shapeAnalysis(S1, TS);
 
 % fprintf('\n    Transfering Sample3.raw to frequency domain by DFT ...\n');
 % D = DFT(S3);
-% D -> abs -> log10 -> scale to [0, 255] -> output image
-% D_image = log10(abs(D));
+% D_image = abs(D);
 % maxPixelValue = max(max(D_image));
 % minPixelValue = min(min(D_image));
-% D_image_scaled = 255 * (D_image - minPixelValue) / (maxPixelValue - minPixelValue);
-% D_image_scaled = 255 * D_image / minPixelValue;
+% D_image_scaled = 1 * (D_image - minPixelValue) / (maxPixelValue - minPixelValue);
+% for i = 1:15
+%     D_image_scaled = log(1 + D_image_scaled);
+% end
+% D_image_scaled = D_image_scaled * 255;
 % imwrite(uint8(D_image_scaled), './rslt_images/Sample3_DFT.png');

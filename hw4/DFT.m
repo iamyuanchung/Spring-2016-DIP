@@ -7,13 +7,17 @@ F = zeros(M, N);
 %%%%%%%%%%%%%%%%%%%%
 %%% very slow!!! %%%
 %%%%%%%%%%%%%%%%%%%%
-for u = (-M / 2 + 1):M / 2
-    for v = (-N / 2 + 1):N / 2
-        fprintf('%d, %d\n', u, v);
+for u = 1:M
+    if (mod(u, 10) == 0)
+        fprintf('%d\n', u);
+    end
+    for v = 1:N
         for j = 0:(M - 1)
             for k = 0:(N - 1)
-                F(u + M / 2, v + N / 2) = F(u + M / 2, v + N / 2) + G(j + 1, k + 1) * exp(-1i * 2 * pi * (u * j / M + v * k / N));
+                F(u, v) = F(u, v) + exp(-1i * 2 * pi * ((u - M / 2) * j / M + (v - N / 2) * k / N));
             end
         end
     end
 end
+
+F = F / (M * N);
