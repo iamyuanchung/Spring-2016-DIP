@@ -3,7 +3,7 @@ function count = shapeAnalysis(S1, TS)
 
 % remove the noisy background
 S1 = (S1 > 0) * 255;
-imwrite(uint8(S1), './rslt_images/Sample1_clean.png');
+% imwrite(uint8(S1), './rslt_images/Sample1_clean.png');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% heuristic trimming %%%
