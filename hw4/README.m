@@ -65,11 +65,11 @@ set(fig, 'Visible', 'off');
 % imwrite(uint8(B), './rslt_images/Sample2_boundary.png');
 % 
 % fprintf('\n    Smoothing the boundary of Sample2.raw using opening operator ...\n');
-%  % specify the radius of the round kernel here
-% radius = 8;
+% % specify the radius of the round kernel here
+% radius = 12;
 % H = createRoundKernel(radius);
 % O = opening(S2, H);
-% imwrite(uint8(O), './rslt_images/Sample2_opened.png');
+% imwrite(uint8(O), ['./rslt_images/Sample2_opened_radius_', num2str(radius), '.png']);
 
 % ####################################################################### %
 % ################ Problem 3: Frequency-domain Filtering ################ %
