@@ -1,3 +1,3 @@
 # README #
 
-This repository contains my homework & project of Digital Image Processing done at NTU during semester 104-2.
+This repository contains all of my materials of homework and projects finished during the 2016 Spring Digital Image Processing (DIP) course at NTU.
